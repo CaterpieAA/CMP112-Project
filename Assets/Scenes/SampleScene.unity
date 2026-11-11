@@ -809,7 +809,7 @@ GameObject:
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -881,11 +881,11 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0.15267785, y: 0.018113235, z: -0.002798778, w: 0.9881061}
-  m_LocalPosition: {x: -29.39, y: 13.37, z: -6.74}
+  m_LocalPosition: {x: 0.09000015, y: 6.02, z: -18.41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 757991357}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &330585547
 MonoBehaviour:
@@ -940,11 +940,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 330585543}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 540c1b8914d8477439e98374e5ff048f, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a0d23c20f4f24f489bdd25790e8517e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::rotator
-  turn: {x: 0, y: 0}
-  sensitivity: 0.5
+  m_EditorClassIdentifier: Assembly-CSharp::c_t
+  camTarget: {fileID: 1284493822}
+  pLerp: 0.02
+  rLerp: 0.01
 --- !u!1 &367979531
 GameObject:
   m_ObjectHideFlags: 0
@@ -1409,6 +1410,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 912231956}
+  - {fileID: 330585546}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &832575517
@@ -1583,6 +1585,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 912231956}
+  - component: {fileID: 912231957}
   m_Layer: 0
   m_Name: rotater
   m_TagString: Untagged
@@ -1606,6 +1609,20 @@ Transform:
   - {fileID: 1284493822}
   m_Father: {fileID: 757991357}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &912231957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912231955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 540c1b8914d8477439e98374e5ff048f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::rotator
+  turn: {x: 0, y: 0}
+  sensitivity: 0.5
 --- !u!1 &945435571
 GameObject:
   m_ObjectHideFlags: 0
@@ -2182,7 +2199,7 @@ GameObject:
   m_Layer: 0
   m_Name: CamTarget
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -2195,7 +2212,7 @@ Transform:
   m_GameObject: {fileID: 1284493821}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3820,4 +3837,3 @@ SceneRoots:
   - {fileID: 1071768001}
   - {fileID: 1523095327}
   - {fileID: 757991357}
-  - {fileID: 330585546}
