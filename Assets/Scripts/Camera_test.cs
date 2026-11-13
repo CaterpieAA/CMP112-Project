@@ -16,7 +16,7 @@ public class Camera_test : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.Lerp(transform.position, camTarget.position, pLerp);
-        transform.rotation = Quaternion.Lerp(transform.rotation, camTarget.rotation, rLerp);
+        transform.position = camTarget.position;
+        transform.rotation = camTarget.rotation;
     }
 }
