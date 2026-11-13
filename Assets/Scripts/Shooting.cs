@@ -22,16 +22,45 @@ public class Shooting : MonoBehaviour
     {
         animation = GetComponent<Animator>();
     }
+
+
+    void Update()
+    {
+       
+            
+
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
+            animation.SetBool("isShooting", true);
+
+
+        }
+        else
+        {
+            animation.SetBool("isShooting", false);
+        }
+           
+           
+           
+           
+
+        
+        
+        
+        
+        
+        
+
+    }
+    
     
     
     void FixedUpdate()
     {
-        while (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            animation.SetBool("isShooting", true);
-        }
+
         
-    }
+
+    }   
 
 }
 

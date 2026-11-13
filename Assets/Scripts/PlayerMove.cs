@@ -60,7 +60,7 @@ public class PlayerMove : MonoBehaviour
 
         MovePlayer();
 
-        if (jump.IsPressed())
+        if (Input.GetKey(KeyCode.Space))
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
@@ -77,25 +77,25 @@ public class PlayerMove : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             float angle = Mathf.Atan2(verticalInput, horizontalInput) * Mathf.Rad2Deg;
-            Vector3 rotation = new Vector3(0, (angle - 90), 0);
+            Vector3 rotation = new Vector3(0, (angle - 0), 0);
             transform.eulerAngles = rotation;
         }
         if (Input.GetKey(KeyCode.S))
         {
             float angle = Mathf.Atan2(verticalInput, horizontalInput) * Mathf.Rad2Deg;
-            Vector3 rotation = new Vector3(0, (angle - 90), 0);
+            Vector3 rotation = new Vector3(0, (angle - 0), 0);
             transform.eulerAngles = rotation;
         }
         if (Input.GetKey(KeyCode.A))
         {
             float angle = Mathf.Atan2(verticalInput, horizontalInput) * Mathf.Rad2Deg;
-            Vector3 rotation = new Vector3(0, (angle - 270), 0);
+            Vector3 rotation = new Vector3(0, (angle - 180), 0);
             transform.eulerAngles = rotation;
         }
         if (Input.GetKey(KeyCode.D))
         {
             float angle = Mathf.Atan2(verticalInput, horizontalInput) * Mathf.Rad2Deg;
-            Vector3 rotation = new Vector3(0, (angle - 270), 0);
+            Vector3 rotation = new Vector3(0, (angle - 180), 0);
             transform.eulerAngles = rotation;
         }
 
