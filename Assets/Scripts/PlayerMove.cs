@@ -78,25 +78,25 @@ public class PlayerMove : MonoBehaviour
         {
             float angle = Mathf.Atan2(verticalInput, horizontalInput) * Mathf.Rad2Deg;
             Vector3 rotation = new Vector3(0, (angle - 0), 0);
-            transform.eulerAngles = rotation;
+            //transform.eulerAngles = rotation;
         }
         if (Input.GetKey(KeyCode.S))
         {
             float angle = Mathf.Atan2(verticalInput, horizontalInput) * Mathf.Rad2Deg;
             Vector3 rotation = new Vector3(0, (angle - 0), 0);
-            transform.eulerAngles = rotation;
+            //transform.eulerAngles = rotation;
         }
         if (Input.GetKey(KeyCode.A))
         {
             float angle = Mathf.Atan2(verticalInput, horizontalInput) * Mathf.Rad2Deg;
             Vector3 rotation = new Vector3(0, (angle - 180), 0);
-            transform.eulerAngles = rotation;
+            //transform.eulerAngles = rotation;
         }
         if (Input.GetKey(KeyCode.D))
         {
             float angle = Mathf.Atan2(verticalInput, horizontalInput) * Mathf.Rad2Deg;
             Vector3 rotation = new Vector3(0, (angle - 180), 0);
-            transform.eulerAngles = rotation;
+            //transform.eulerAngles = rotation;
         }
 
         //float angle = Mathf.Atan2(verticalInput, horizontalInput) * Mathf.Rad2Deg;
