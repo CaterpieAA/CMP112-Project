@@ -591,6 +591,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed9c72e99c6997d459f9a7df8c41f344, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Shooting
+  BulletPrefab: {fileID: 7098134283304544723, guid: 049de51487743574bb5982d9198611a2, type: 3}
+  FirePosition: {fileID: 1908204772}
   damage: 0
   timeBetweenShooting: 0
   spread: 0
@@ -4165,6 +4167,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
+--- !u!4 &1908204772 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7722149710163238965, guid: a686bc8fbe10d9042942cbe8822e85b2, type: 3}
+  m_PrefabInstance: {fileID: 1404860954}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1933229921
 GameObject:
   m_ObjectHideFlags: 0

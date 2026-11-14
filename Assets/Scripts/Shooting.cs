@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
+    public GameObject BulletPrefab;
+    public Transform FirePosition;
+
     //gun stats
 
     public int damage;
@@ -15,7 +18,7 @@ public class Shooting : MonoBehaviour
     //bools
 
     bool shooting, readyToShoot, reloading;
-
+    bool aiming = false;
 
 
     void Start()
@@ -23,44 +26,57 @@ public class Shooting : MonoBehaviour
         animation = GetComponent<Animator>();
     }
 
-
     void Update()
     {
-       
-            
-
-        if (Input.GetKey(KeyCode.Mouse0))
+        if(Input.GetMouseButtonDown(1))
         {
-            animation.SetBool("isShooting", true);
-
-
+            if (aiming==true)
+            {
+                aiming = false;
+            }
+            else
+            {
+                aiming = true;
+            }
+            AimAction();
         }
-        else
+        if(Input.GetMouseButtonDown(0))
         {
-            animation.SetBool("isShooting", false);
+            GameObject bullet = Instantiate(BulletPrefab, FirePosition.position, Quaternion.identity);
+            bullet.GetComponent<Rigidbody>().AddForce(transform.forward * 10000);
         }
-           
-           
-           
-           
 
-        
-        
-        
-        
-        
-        
+
+        //if (Input.GetKey(KeyCode.Mouse1))
+        //{
+        //    animation.SetBool("isShooting", true);
+        //}
+        //else
+        //{
+        //    animation.SetBool("isShooting", false);
+        //}
 
     }
-    
-    
-    
+
+
+
     void FixedUpdate()
     {
 
         
 
     }   
-
+    private void AimAction()
+    {
+        if (aiming==true)
+        {
+            animation.SetBool("isShooting", true);
+        }
+        else
+        {
+            animation.SetBool("isShooting", false);
+        }
+    }
 }
+    
 
