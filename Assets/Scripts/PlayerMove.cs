@@ -1,9 +1,14 @@
 using UnityEngine;
 using UnityEngine.Rendering.Universal.Internal;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class PlayerMove : MonoBehaviour
 {
+    public TextMeshProUGUI countText;
+
+    public int score_count;
+
     public float speed = 5f;
 
     public Transform orientation;
@@ -27,6 +32,7 @@ public class PlayerMove : MonoBehaviour
         rb.freezeRotation = true;
 
         animator = GetComponent<Animator>();
+        SetCountText();
     }
 
     private void OnEnable()
@@ -102,6 +108,17 @@ public class PlayerMove : MonoBehaviour
         //float angle = Mathf.Atan2(verticalInput, horizontalInput) * Mathf.Rad2Deg;
         //Vector3 rotation = new Vector3(0, (angle - 270), 0);
         //transform.eulerAngles = rotation;
+    }
+
+    public void addScore()
+    {
+        score_count++;
+        SetCountText();
+    }
+
+    void SetCountText()
+    {
+        countText.text = "Count: " + score_count.ToString();
     }
 }
 

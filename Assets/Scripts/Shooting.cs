@@ -43,6 +43,7 @@ public class Shooting : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             GameObject bullet = Instantiate(BulletPrefab, FirePosition.position, Quaternion.identity);
+            bullet.GetComponent<Bullet>().SetPM(GetComponent<PlayerMove>());
             bullet.GetComponent<Rigidbody>().AddForce(transform.forward * 10000);
         }
 
