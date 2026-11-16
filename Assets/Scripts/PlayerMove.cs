@@ -26,6 +26,10 @@ public class PlayerMove : MonoBehaviour
 
     public float jumpForce = 5f;
 
+    public bool isAiming;
+
+    public rotator rotatorScript;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -46,7 +50,9 @@ public class PlayerMove : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
-        if(moveDirection == Vector3.zero)
+        isAiming = Input.GetMouseButton(1);
+
+        if (moveDirection == Vector3.zero)
         {
             animator.SetFloat("speed", 0);
         }
@@ -71,6 +77,14 @@ public class PlayerMove : MonoBehaviour
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
 
+        if (isAiming)
+        {
+
+            Quaternion targetRotation = Quaternion.Euler(0, rotatorScript.turn.x, 0);
+
+            rb.MoveRotation(targetRotation);
+        }
+
     }
 
     private void MovePlayer()
@@ -80,30 +94,30 @@ public class PlayerMove : MonoBehaviour
 
         rb.AddForce(moveDirection.normalized * speed, ForceMode.Force);
 
-        if (Input.GetKey(KeyCode.W))
-        {
-            float angle = Mathf.Atan2(verticalInput, horizontalInput) * Mathf.Rad2Deg;
-            Vector3 rotation = new Vector3(0, (angle - 0), 0);
-            //transform.eulerAngles = rotation;
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            float angle = Mathf.Atan2(verticalInput, horizontalInput) * Mathf.Rad2Deg;
-            Vector3 rotation = new Vector3(0, (angle - 0), 0);
-            //transform.eulerAngles = rotation;
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            float angle = Mathf.Atan2(verticalInput, horizontalInput) * Mathf.Rad2Deg;
-            Vector3 rotation = new Vector3(0, (angle - 180), 0);
-            //transform.eulerAngles = rotation;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            float angle = Mathf.Atan2(verticalInput, horizontalInput) * Mathf.Rad2Deg;
-            Vector3 rotation = new Vector3(0, (angle - 180), 0);
-            //transform.eulerAngles = rotation;
-        }
+        //if (Input.GetKey(KeyCode.W))
+        //{
+        //    float angle = Mathf.Atan2(verticalInput, horizontalInput) * Mathf.Rad2Deg;
+        //    Vector3 rotation = new Vector3(0, (angle - 0), 0);
+        //    //transform.eulerAngles = rotation;
+        //}
+        //if (Input.GetKey(KeyCode.S))
+        //{
+        //    float angle = Mathf.Atan2(verticalInput, horizontalInput) * Mathf.Rad2Deg;
+        //    Vector3 rotation = new Vector3(0, (angle - 0), 0);
+        //    //transform.eulerAngles = rotation;
+        //}
+        //if (Input.GetKey(KeyCode.A))
+        //{
+        //    float angle = Mathf.Atan2(verticalInput, horizontalInput) * Mathf.Rad2Deg;
+        //    Vector3 rotation = new Vector3(0, (angle - 180), 0);
+        //    //transform.eulerAngles = rotation;
+        //}
+        //if (Input.GetKey(KeyCode.D))
+        //{
+        //    float angle = Mathf.Atan2(verticalInput, horizontalInput) * Mathf.Rad2Deg;
+        //    Vector3 rotation = new Vector3(0, (angle - 180), 0);
+        //    //transform.eulerAngles = rotation;
+        //}
 
         //float angle = Mathf.Atan2(verticalInput, horizontalInput) * Mathf.Rad2Deg;
         //Vector3 rotation = new Vector3(0, (angle - 270), 0);
