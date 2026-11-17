@@ -28,7 +28,7 @@ public class PlayerMove : MonoBehaviour
 
     public bool isAiming;
 
-    public rotator rotatorScript;
+    public rotator rotator_Script;
 
     private void Start()
     {
@@ -80,7 +80,7 @@ public class PlayerMove : MonoBehaviour
         if (isAiming)
         {
 
-            Quaternion targetRotation = Quaternion.Euler(0, rotatorScript.turn.x, 0);
+            Quaternion targetRotation = Quaternion.Euler(0, rotator_Script.turn.x, 0);
 
             rb.MoveRotation(targetRotation);
         }
