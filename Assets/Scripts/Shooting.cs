@@ -9,7 +9,7 @@ public class Shooting : MonoBehaviour
 
     //gun stats
 
-    public float weaponRange = 500f;
+    //public float weaponRange = 500f;
     public int damage;
     public float timeBetweenShooting, spread, range, reloadTime, timeBetweenShots;
     public int magzineSize, bulletsPerTap;
@@ -51,7 +51,7 @@ public class Shooting : MonoBehaviour
             Vector3 rayOrigin = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
             RaycastHit hit;
             Vector3 ray;
-            if (Physics.Raycast(rayOrigin, cam.transform.forward, out hit, weaponRange)&& !hit.collider.CompareTag("Player"))
+            if (Physics.Raycast(rayOrigin, cam.transform.forward, out hit, 1000, ~(1<<3)))
             {
                 ray = hit.point;
             }
@@ -59,11 +59,11 @@ public class Shooting : MonoBehaviour
             {
                 ray = rayOrigin + (cam.transform.forward * weaponRange);
             }
-            Vector3 direction = (ray - FirePosition.position).normalized;
+            Vector3 bullet_direction = (ray - FirePosition.position).normalized;
 
-            GameObject bullet = Instantiate(BulletPrefab, FirePosition.position, Quaternion.LookRotation(direction));
+            GameObject bullet = Instantiate(BulletPrefab, FirePosition.position, Quaternion.LookRotation(bullet_direction));
             bullet.GetComponent<Bullet>().SetPM(GetComponent<PlayerMove>());
-            bullet.GetComponent<Rigidbody>().AddForce(direction * 10000);
+            bullet.GetComponent<Rigidbody>().AddForce(bullet_direction * 10000);
 
             //Vector3 rayOrigin = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
             //RaycastHit hit;

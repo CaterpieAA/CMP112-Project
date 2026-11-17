@@ -133,9 +133,9 @@ public class PlayerMove : MonoBehaviour
         //transform.eulerAngles = rotation;
     }
 
-    public void addScore()
+    public void addScore(int n)
     {
-        score_count++;
+        score_count+=n;
         SetCountText();
     }
 
