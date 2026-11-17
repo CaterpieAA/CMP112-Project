@@ -37,12 +37,14 @@ public class Shooting : MonoBehaviour
             if (aiming==true)
             {
                 aiming = false;
+                animation.SetBool("isShooting", false);
             }
             else
             {
                 aiming = true;
+                animation.SetBool("isShooting", true);
             }
-            AimAction();
+           // AimAction();
         }
         if(Input.GetMouseButtonDown(0))
         {
@@ -97,17 +99,17 @@ public class Shooting : MonoBehaviour
         
 
     }   
-    private void AimAction()
-    {
-        if (aiming==true)
-        {
-            animation.SetBool("isShooting", true);
-        }
-        else
-        {
-            animation.SetBool("isShooting", false);
-        }
-    }
+    //private void AimAction()
+   // {
+       // if (aiming==true)
+       // {
+       //     animation.SetBool("isShooting", true);
+       // }
+       // else
+      //  {
+        //    animation.SetBool("isShooting", false);
+      //  }
+   // }
 }
     
 
