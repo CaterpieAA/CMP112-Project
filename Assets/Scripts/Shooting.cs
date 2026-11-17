@@ -57,7 +57,7 @@ public class Shooting : MonoBehaviour
             }
             else
             {
-                ray = rayOrigin + (cam.transform.forward * weaponRange);
+                ray = rayOrigin + (cam.transform.forward * 1000);
             }
             Vector3 bullet_direction = (ray - FirePosition.position).normalized;
 
